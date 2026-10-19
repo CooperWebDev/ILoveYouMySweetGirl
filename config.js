@@ -56,18 +56,18 @@ const CONFIG = {
 
   // Scratch-off love coupons
   coupons: [
-    { icon: "🌸", title: "One date, anywhere you want" },
-    { icon: "🐰", title: "Unlimited hugs, no questions asked" },
-    { icon: "🎤", title: "A Stray Kids video marathon — I won't complain once" },
+    { icon: "🌸", title: "One date, you choose :>>" },
+    { icon: "🐰", title: "Unlimited kisses, no option :D" },
+    { icon: "💗", title: "Anything you want.. i won't complain once :<" },
   ],
 
   // "Why you're my favorite" boxes
   traits: [
-    { icon: "🍓", name: "Sweet",    text: "You're kind to literally everyone — and somehow even sweeter to me." },
-    { icon: "🐰", name: "Cute",     text: "Officially the cutest human alive. I checked. Twice." },
-    { icon: "✨", name: "Exciting", text: "Every day with you feels like a new adventure." },
-    { icon: "🎨", name: "Creative", text: "Your brain is full of the coolest ideas. I love how you see the world." },
-    { icon: "🤍", name: "Helpful",  text: "You always show up for the people you love. You make everyone's life better — especially mine." },
+    { icon: "🍓", name: "Sweet",    text: "Your the type of girl that always cares about me and not only me.. people in general.. thats so special.." },
+    { icon: "🐰", name: "Cute",     text: "Your so cute i swear those cheeks are so tasty.. nom nom.. im always smiling when i see you.. so cute.. MWAH" },
+    { icon: "✨", name: "Exciting", text: "Your so exciting it makes me happy every second i swear. It makes my day each time, i love that so much about you.." },
+    { icon: "🎨", name: "Creative", text: "Your creativity is something special baby, every time im so impressed its insane.." },
+    { icon: "🤍", name: "Caring",  text: "Your always so caring and helpful.. im so proud, your so amazing baby and your so special my love.. i love you.." },
   ],
 
   // Photos (optional). Put pictures in this folder and list them here, like:
