@@ -11,8 +11,8 @@
   const off = $("#boothOff"), camBtn = $("#camBtn"), camMsg = $("#camMsg"), snapBtn = $("#snapBtn"), countEl = $("#boothCount");
   const result = $("#boothResult"), img = $("#boothImg"), saveBtn = $("#saveBtn");
   const FRAMES = [
-    { id: "hearts", label: "💗 Hearts" }, { id: "bunny", label: "🐰 Bunny" },
-    { id: "orchid", label: "🌸 Orchids" }, { id: "stage", label: "🎤 Concert" },
+    { id: "hearts", label: T("hearts") }, { id: "bunny", label: T("bunny") },
+    { id: "orchid", label: T("orchids") }, { id: "stage", label: T("concert") },
   ];
   let frame = "hearts", stream = null, busy = false;
 
@@ -83,7 +83,7 @@
       c.restore();
       c.fillStyle = "#fff"; c.strokeStyle = "#f0528f"; c.lineWidth = 6 * u;
       c.font = `700 ${30 * u}px Quicksand, sans-serif`; c.textAlign = "center";
-      c.strokeText("STAY 💗 forever", w / 2, h - 26 * u); c.fillText("STAY 💗 forever", w / 2, h - 26 * u);
+      c.strokeText(T("stay___forever"), w / 2, h - 26 * u); c.fillText(T("stay___forever"), w / 2, h - 26 * u);
     }
   }
 
@@ -108,7 +108,7 @@
       requestAnimationFrame(loop);
     } catch (e) {
       stream = null;
-      camMsg.textContent = "Couldn't open the camera — allow camera access (or try it on your phone) 📱";
+      camMsg.textContent = T("couldn_t_open_the_camera");
     }
   }
   function stopCam() {
@@ -154,9 +154,9 @@
     const day = Math.floor((Date.now() - START) / 864e5) + 1;
     c.fillStyle = "#d63a78"; c.textAlign = "center";
     c.font = `700 64px "Dancing Script", cursive`;
-    c.fillText(`${CONFIG.herName} 💗 day ${day}`, out.width / 2, PH + pad + 100);
+    c.fillText(T("day",[day]), out.width / 2, PH + pad + 100);
     c.fillStyle = "#9a4f75"; c.font = `600 26px Quicksand, sans-serif`;
-    c.fillText(new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) + ` · made by ${CONFIG.fromName}`, out.width / 2, PH + pad + 150);
+    c.fillText(new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) + T("made_by"), out.width / 2, PH + pad + 150);
 
     const url = out.toDataURL("image/png");
     img.src = url;
@@ -165,7 +165,7 @@
     result.classList.remove("show"); void result.offsetWidth; result.classList.add("show");
     const [x, y] = center(screen);
     burst(x, y, 20, ["📸", "💗", "✨", "🌸"]);
-    achieve("photo", "Cutest photo ever 📸");
+    achieve("photo", T("cutest_photo_ever"));
     setTimeout(() => result.scrollIntoView({ behavior: "smooth", block: "center" }), 400);
     busy = false;
     snapBtn.disabled = false;
@@ -189,7 +189,7 @@
     try {
       stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
     } catch (e) {
-      msg.textContent = "Couldn't use the microphone — allow mic access to try this 🎤";
+      msg.textContent = T("couldn_t_use_the_microphone");
       return;
     }
     musicWasOn = typeof Music !== "undefined" && Music.on;
@@ -199,8 +199,8 @@
     analyser = ctx.createAnalyser(); analyser.fftSize = 512; analyser.smoothingTimeConstant = 0.6;
     src.connect(analyser);                       // NOT connected to the speakers (no echo)
     data = new Uint8Array(analyser.fftSize);
-    btn.textContent = "⏹ stop";
-    msg.textContent = "listening… say \"I love you\" 💗";
+    btn.textContent = T("stop");
+    msg.textContent = T("listening__say__i_love");
     // bonus: if the browser can understand speech, hearing the word "love" fills it instantly
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SR) {
@@ -222,8 +222,8 @@
     try { src && src.disconnect(); } catch (e) {}
     try { rec && rec.stop(); } catch (e) {}
     rec = null;
-    btn.textContent = "🎤 start listening";
-    if (byUser && !done) msg.textContent = "tap the mic to try again";
+    btn.textContent = T("start_listening");
+    if (byUser && !done) msg.textContent = T("tap_the_mic_to2");
     if (musicWasOn) { Music.start(); musicWasOn = false; }
   }
   function loop() {
@@ -255,8 +255,8 @@
     Fireworks.show(6);
     heartRain(50);
     if (typeof buzz === "function") buzz([40, 40, 120]);
-    msg.textContent = `I heard that 💗 I love you too, ${CONFIG.herName}!`;
-    achieve("voice", "Said it out loud 🎤");
+    msg.textContent = T("i_heard_that");
+    achieve("voice", T("said_it_out_loud"));
   }
   btn.addEventListener("click", start);
 })();

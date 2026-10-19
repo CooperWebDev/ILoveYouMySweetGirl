@@ -120,7 +120,7 @@ async function nextToast() {
 
 /* tab title when she switches away */
 document.addEventListener("visibilitychange", () => {
-  document.title = document.hidden ? `come back ${CONFIG.herName} 🥺💗` : `For ${CONFIG.herName} 💗`;
+  document.title = document.hidden ? T("come_back") : T("for");
 });
 
 /* ================= custom cursor ================= */
@@ -306,7 +306,7 @@ const Fireworks = (() => {
 (function loader() {
   const path = $("#ldPath");
   try { $("#ldHeart").style.setProperty("--len", Math.ceil(path.getTotalLength())); } catch (e) {}
-  const text = `made with love, for ${CONFIG.herName}`;
+  const text = T("made_with_love__for");
   Array.from(text).forEach((ch, i) => {
     const s = document.createElement("span");
     s.textContent = ch === " " ? " " : ch;
@@ -335,14 +335,14 @@ runLoader();
 
 /* ================= 2. LOCK SCREEN ================= */
 const lockCard = $("#lockCard"), pw = $("#pw"), err = $("#err"), lockSvg = $("#lockSvg");
-Array.from(`Hi, ${CONFIG.herName}`).forEach((ch, i) => {
+Array.from(T("hi")).forEach((ch, i) => {
   const s = document.createElement("span");
   s.textContent = ch === " " ? " " : ch;
   s.style.setProperty("--i", i);
   $("#lockTitle").appendChild(s);
 });
 $("#hint").textContent = CONFIG.hint;
-const wrongMsgs = ["Hmm, not quite 🙈", "Try again, cutie 💗", "Think… when did it all start? 🌸", "So close (maybe) 😚", "You've got this 🐰"];
+const wrongMsgs = [T("hmm__not_quite"), T("try_again__cutie"), T("think__when_did_it"), T("so_close__maybe"), T("you_ve_got_this")];
 let wrongCount = 0;
 
 /* 3D tilt that follows the mouse */
@@ -591,19 +591,19 @@ $("#enterBtn").addEventListener("click", async (e) => {
 });
 
 /* ================= 4. MAIN PAGE ================= */
-$("#madeBy").textContent = `a little something, made by ${CONFIG.fromName}, for`;
+$("#madeBy").textContent = T("a_little_something__made");
 Array.from(CONFIG.herName).forEach((ch, i) => {
   const s = document.createElement("span");
   s.className = "ch"; s.textContent = ch; s.style.setProperty("--i", i);
   $("#heroName").appendChild(s);
 });
 $("#heroDate").textContent = START.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-$("#countKicker").textContent = `since ${pad(START.getDate())} · ${pad(START.getMonth() + 1)} · ${START.getFullYear()}`;
+$("#countKicker").textContent = T("since",[pad(START.getDate()),pad(START.getMonth() + 1),START.getFullYear()]);
 $("#qText").textContent = CONFIG.question;
-$("#pianoBrand").textContent = `${CONFIG.herName}'s piano`;
-$("#envPaper").textContent = `for ${CONFIG.herName} 💗`;
-splitLetters($("#footBig"), `I love you, ${CONFIG.herName}`);
-$("#footLine").textContent = `made with love by ${CONFIG.fromName} · since ${pad(START.getDate())}.${pad(START.getMonth() + 1)}.${START.getFullYear()}`;
+$("#pianoBrand").textContent = T("s_piano");
+$("#envPaper").textContent = T("for2");
+splitLetters($("#footBig"), T("i_love_you"));
+$("#footLine").textContent = T("made_with_love_by",[pad(START.getDate()),pad(START.getMonth() + 1),START.getFullYear()]);
 document.querySelectorAll("h2").forEach((h) => splitLetters(h, h.textContent, { colors: ["d63a78", "ff6fa8", "c56bd6"] }));
 
 /* twinkling sparkles in the hero */
@@ -701,9 +701,9 @@ CONFIG.cards.forEach((card, i) => {
       <div class="flip-inner">
         <div class="face front" style="--bgc:${card.bg}">
           <div class="ico">${card.icon}</div>
-          <div><h3></h3><div class="tap" style="margin-top:10px">tap to open ↻</div></div>
+          <div><h3></h3><div class="tap" style="margin-top:10px">${T("tap_to_open2")}</div></div>
         </div>
-        <div class="face back"><p></p><div class="sig">— ${CONFIG.fromName}</div></div>
+        <div class="face back"><p></p><div class="sig">${T("signature")}</div></div>
       </div>
     </div>`;
   b.querySelector("h3").textContent = card.title;
@@ -726,8 +726,8 @@ CONFIG.cards.forEach((card, i) => {
       burst(e.clientX || x, e.clientY || y, 14, [card.icon, "💗", "✨", "💕"]);
       ring(x, y, { size: 380, width: 3, dur: 800 });
       flippedCards.add(i);
-      achieve("card1", "Opened your first letter 💌");
-      if (flippedCards.size === CONFIG.cards.length) { achieve("allcards", "Collected every letter 🌸"); Fireworks.show(3); }
+      achieve("card1", T("opened_your_first_letter"));
+      if (flippedCards.size === CONFIG.cards.length) { achieve("allcards", T("collected_every_letter")); Fireworks.show(3); }
     }
   });
   cardsEl.appendChild(b);
@@ -788,7 +788,7 @@ function press(el) {
   fx(["♪", "♫", "💗", "♩", "🌸"][Math.floor(Math.random() * 5)], x, y, rand(20, 30),
     [{ o: 0, s: 0.5 }, { o: 1, s: 1, y: -40 }, { o: 0, s: 1.3, y: -150, x: rand(-40, 40), r: rand(-40, 40) }], 1500);
   ring(x, y, { size: 90, width: 2, dur: 600, color: "#ffffff" });
-  achieve("piano", "Duet unlocked 🎹");
+  achieve("piano", T("duet_unlocked"));
 }
 WHITE.forEach(([n, f, k]) => {
   const el = document.createElement("div");
@@ -852,12 +852,12 @@ let playing = false;
 $("#melodyBtn").addEventListener("click", async () => {
   if (playing) return;
   playing = true;
-  $("#melodyBtn").textContent = "♪ playing…";
+  $("#melodyBtn").textContent = T("playing");
   for (const [n, beats] of MELODY) {
     if (n) press(noteMap[n]);
     await sleep(beats * 380);
   }
-  $("#melodyBtn").textContent = "▶ play a little song";
+  $("#melodyBtn").textContent = T("play_a_little");
   playing = false;
   const [x, y] = center($("#piano"));
   burst(x, y - 60, 16);
@@ -883,12 +883,12 @@ async function openLetter() {
   modal.classList.add("show");
   modal.removeAttribute("aria-hidden");
   for (const p of letterBody.querySelectorAll("p")) { await sleep(reduceMotion ? 0 : 700); p.classList.add("in"); }
-  achieve("letter", "Read the secret letter 💌");
+  achieve("letter", T("read_the_secret_letter"));
 }
 envelope.addEventListener("click", async () => {
   if (!envelope.classList.contains("open")) {
     envelope.classList.add("open");
-    $("#envCap").textContent = "tap again to read it 💗";
+    $("#envCap").textContent = T("tap_again_to_read");
     const [x, y] = center(envelope);
     burst(x, y, 22);
     ring(x, y, { size: 420, width: 3 });
@@ -902,9 +902,9 @@ $("#closeLetter").addEventListener("click", closeLetter);
 modal.addEventListener("click", (e) => { if (e.target === modal) closeLetter(); });
 addEventListener("keydown", (e) => { if (e.key === "Escape") closeLetter(); });
 
-/* ================= the question (the "No" button runs away) ================= */
+/* ================= the question (the T("no") button runs away) ================= */
 const qBox = $("#qBox"), noBtn = $("#noBtn"), yesBtn = $("#yesBtn");
-const noTexts = ["No", "nope 😝", "try again", "can't catch me", "just press yes 💗", "nice try 🙈"];
+const noTexts = [T("no"), T("nope"), T("try_again"), T("can_t_catch_me"), T("just_press_yes"), T("nice_try")];
 let dodges = 0, saidYes = false;
 function dodge(e) {
   if (e) e.preventDefault();
@@ -933,7 +933,7 @@ yesBtn.addEventListener("click", (e) => {
   saidYes = true;
   noBtn.style.display = "none";
   yesBtn.style.transform = "";
-  achieve("yes", "Player 2 — forever 🎮💗");
+  achieve("yes", T("player_2___forever"));
 });
 
 /* ================= scroll reveal ================= */

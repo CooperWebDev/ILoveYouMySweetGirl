@@ -2,7 +2,7 @@
    Bump VERSION whenever you change files so phones get the new version. */
 const VERSION = "ella-v4";
 const FILES = [
-  "./", "index.html", "config.js", "manifest.webmanifest",
+  "./", "index.html", "config.js", "js/texts.js", "manifest.webmanifest",
   "css/style.css", "css/features.css", "css/more.css",
   "js/app.js", "js/shader.js", "js/heart3d.js", "js/music.js", "js/game.js", "js/extras.js", "js/more.js", "js/booth.js",
   "icons/icon-192.png", "icons/icon-512.png",

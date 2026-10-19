@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffd3e6">
-<title>For Ella 💗</title>
+<title data-t="for"></title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💗</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Ella 💗">
+<meta name="apple-mobile-web-app-title" content="Ella 💗" data-t-content="appTitle">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/features.css">
 <link rel="stylesheet" href="css/more.css">
@@ -52,7 +52,7 @@
 </svg>
 
 <!-- ============ LOADER ============ -->
-<section id="loader" class="screen" aria-label="Loading">
+<section id="loader" class="screen" aria-label="Loading" data-t-aria-label="loading">
   <div class="ld-inner">
     <svg class="ld-heart" id="ldHeart" viewBox="0 0 200 180" aria-hidden="true">
       <defs>
@@ -69,7 +69,7 @@
 </section>
 
 <!-- ============ LOCK SCREEN ============ -->
-<section id="lock" class="screen waiting" aria-label="Locked">
+<section id="lock" class="screen waiting" aria-label="Locked" data-t-aria-label="locked">
   <div id="lockTilt">
     <div class="lock-card" id="lockCard">
       <span class="lock-deco" style="--i:0;left:-14px;top:-18px">🐰</span>
@@ -92,11 +92,11 @@
         <div class="orbit" aria-hidden="true"><span>✦</span><span>✦</span><span>✦</span></div>
       </div>
       <h1 id="lockTitle"></h1>
-      <p class="sub">someone made something just for you… 💌</p>
+      <p class="sub" data-t="someone_made_something_just"></p>
       <form id="lockForm" autocomplete="off">
         <div class="pw-row">
-          <input id="pw" type="password" placeholder="enter the secret code 🔐" aria-label="Password" autocomplete="off">
-          <button type="submit">Unlock</button>
+          <input id="pw" type="password" placeholder="enter the secret code 🔐" aria-label="Password" autocomplete="off" data-t-aria-label="password" data-t-placeholder="enter_the_secret_code">
+          <button type="submit" data-t="unlock"></button>
         </div>
       </form>
       <p class="hint" id="hint"></p>
@@ -106,12 +106,12 @@
 </section>
 
 <!-- ============ INTRO ============ -->
-<section id="intro" class="screen waiting" aria-label="Intro">
+<section id="intro" class="screen waiting" aria-label="Intro" data-t-aria-label="intro">
   <canvas id="morph"></canvas>
   <p class="cap" id="cap"></p>
   <div class="intro-ui">
     <p class="since" id="since"></p>
-    <button class="btn" id="enterBtn">open your surprise 🎀</button>
+    <button class="btn" id="enterBtn" data-t="open_your_surprise"></button>
   </div>
 </section>
 
@@ -127,34 +127,34 @@
     <div class="hero-content">
       <p class="made" id="madeBy"></p>
       <h1 class="name" id="heroName"></h1>
-      <p class="together">together since <b id="heroDate"></b> 🌸</p>
+      <p class="together"><span data-t="togetherPre"></span><b id="heroDate"></b><span data-t="togetherPost"></span></p>
     </div>
-    <div class="scroll-cue">scroll<span>⌄</span></div>
+    <div class="scroll-cue"><i data-t="scrollCue" style="font-style:normal"></i><span>⌄</span></div>
   </header>
 
   <!-- counter -->
   <section class="section">
     <div class="head reveal">
       <span class="kicker" id="countKicker"></span>
-      <h2>Every second counts</h2>
+      <h2 data-t="every_second_counts"></h2>
     </div>
     <div class="counter" id="counter">
-      <div class="count-box reveal" data-a="pop"><div class="num" id="cD">0</div><div class="lbl">days</div></div>
-      <div class="count-box reveal" data-a="pop" style="transition-delay:.1s"><div class="num" id="cH">0</div><div class="lbl">hours</div></div>
-      <div class="count-box reveal" data-a="pop" style="transition-delay:.2s"><div class="num" id="cM">0</div><div class="lbl">minutes</div></div>
-      <div class="count-box reveal" data-a="pop" style="transition-delay:.3s"><div class="num" id="cS">0</div><div class="lbl">seconds</div></div>
+      <div class="count-box reveal" data-a="pop"><div class="num" id="cD">0</div><div class="lbl" data-t="days"></div></div>
+      <div class="count-box reveal" data-a="pop" style="transition-delay:.1s"><div class="num" id="cH">0</div><div class="lbl" data-t="hours"></div></div>
+      <div class="count-box reveal" data-a="pop" style="transition-delay:.2s"><div class="num" id="cM">0</div><div class="lbl" data-t="minutes"></div></div>
+      <div class="count-box reveal" data-a="pop" style="transition-delay:.3s"><div class="num" id="cS">0</div><div class="lbl" data-t="seconds"></div></div>
     </div>
-    <p class="count-note reveal" data-a="blur">…and every single one was better because of you.</p>
+    <p class="count-note reveal" data-a="blur" data-t="and_every_single_one"></p>
     <div class="crew reveal" data-a="pop" id="crew"><span>🐰</span><span>🐴</span><span>🐶</span><span>🌸</span></div>
-    <p class="crew-cap reveal">the whole crew says hi (tap them!)</p>
+    <p class="crew-cap reveal" data-t="the_whole_crew_says"></p>
   </section>
 
   <!-- our story timeline -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">our story so far</span>
-      <h2>Every day with you</h2>
-      <p class="lead">Scroll and watch our line grow. Past days are ticked, the next one is counting down.</p>
+      <span class="kicker" data-t="our_story_so_far"></span>
+      <h2 data-t="every_day_with_you"></h2>
+      <p class="lead" data-t="scroll_and_watch_our"></p>
     </div>
     <div class="timeline" id="timeline"></div>
   </section>
@@ -162,29 +162,29 @@
   <!-- 3D heart -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">drag it · spin it · tap it</span>
-      <h2>My heart is yours</h2>
-      <p class="lead">Made of thousands of tiny particles, in real 3D. Be gentle with it 💗</p>
+      <span class="kicker" data-t="drag_it___spin"></span>
+      <h2 data-t="my_heart_is_yours"></h2>
+      <p class="lead" data-t="made_of_thousands_of"></p>
     </div>
     <div class="heart3d-wrap reveal" data-a="zoom">
       <div class="heart3d-glow"></div>
-      <canvas id="heart3d" aria-label="A spinning 3D heart"></canvas>
+      <canvas id="heart3d" aria-label="A spinning 3D heart" data-t-aria-label="a_spinning_3d_heart"></canvas>
     </div>
   </section>
 
   <!-- I love you in 20 languages -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">20 languages · tap one to hear it</span>
-      <h2>I love you, in every language</h2>
+      <span class="kicker" data-t="20_languages___tap"></span>
+      <h2 data-t="i_love_you__in"></h2>
     </div>
-    <div class="sphere reveal" data-a="zoom" id="sphere" aria-label="I love you in 20 languages"></div>
+    <div class="sphere reveal" data-a="zoom" id="sphere" aria-label="I love you in 20 languages" data-t-aria-label="i_love_you_in"></div>
     <div class="lang-pick reveal">
       <div class="lp-card" id="lpCard">
         <div class="lp-lang" id="lpLang"></div>
         <div class="lp-word" id="lpWord"></div>
         <div class="lp-say" id="lpSay"></div>
-        <button class="lp-btn" id="lpSpeak" type="button">🔊 hear it</button>
+        <button class="lp-btn" id="lpSpeak" type="button" data-t="hear_it"></button>
       </div>
     </div>
   </section>
@@ -192,8 +192,8 @@
   <!-- flip cards -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">tap a card to open it</span>
-      <h2>Little letters for you</h2>
+      <span class="kicker" data-t="tap_a_card_to"></span>
+      <h2 data-t="little_letters_for_you"></h2>
     </div>
     <div class="cards" id="cards"></div>
   </section>
@@ -201,9 +201,9 @@
   <!-- scratch coupons -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">scratch with your finger</span>
-      <h2>Love coupons</h2>
-      <p class="lead">Scratch the pink foil to reveal your prize. No expiry date. Ever.</p>
+      <span class="kicker" data-t="scratch_with_your_finger"></span>
+      <h2 data-t="love_coupons"></h2>
+      <p class="lead" data-t="scratch_the_pink_foil"></p>
     </div>
     <div class="coupons" id="coupons"></div>
   </section>
@@ -211,8 +211,8 @@
   <!-- traits -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">a few reasons</span>
-      <h2>Why you're my favorite</h2>
+      <span class="kicker" data-t="a_few_reasons"></span>
+      <h2 data-t="why_you_re_my_favorite"></h2>
     </div>
     <div class="traits" id="traits"></div>
   </section>
@@ -220,12 +220,12 @@
   <!-- bouquet -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">for you</span>
-      <h2>Orchids that never wilt</h2>
-      <p class="lead">Your favorite flowers — grown with code, so they stay forever. Tap one.</p>
+      <span class="kicker" data-t="for_you"></span>
+      <h2 data-t="orchids_that_never_wilt"></h2>
+      <p class="lead" data-t="your_favorite_flowers"></p>
     </div>
     <div class="bouquet reveal" id="bouquet">
-      <svg viewBox="0 0 400 380" aria-label="A bouquet of orchids">
+      <svg viewBox="0 0 400 380" aria-label="A bouquet of orchids" data-t-aria-label="a_bouquet_of_orchids">
         <defs>
           <linearGradient id="stemG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd19e"/><stop offset="1" stop-color="#4f9e68"/></linearGradient>
           <linearGradient id="wrapG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd1e3"/><stop offset="1" stop-color="#ff9cc2"/></linearGradient>
@@ -260,27 +260,27 @@
   <!-- piano -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">for my pianist</span>
-      <h2>Play me something</h2>
-      <p class="lead">Tap the keys (or use your keyboard). Every note comes with a little love.</p>
+      <span class="kicker" data-t="for_my_pianist"></span>
+      <h2 data-t="play_me_something"></h2>
+      <p class="lead" data-t="tap_the_keys__or"></p>
     </div>
     <div class="piano reveal" data-a="zoom" id="piano">
       <div class="piano-top">
         <span class="brand" id="pianoBrand"></span>
-        <button id="melodyBtn" type="button">▶ play a little song</button>
+        <button id="melodyBtn" type="button" data-t="play_a_little"></button>
       </div>
       <canvas class="viz" id="viz"></canvas>
       <div class="keys" id="keys"></div>
     </div>
-    <p class="piano-tip reveal">keyboard: A S D F G H J K L ; &nbsp;·&nbsp; W E T Y U O P</p>
+    <p class="piano-tip reveal" data-t="keyboard__a_s_d"></p>
   </section>
 
   <!-- mini game -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">for my gamer girl</span>
-      <h2>Catch my love</h2>
-      <p class="lead">Move the bunny to catch the hearts. Dodge the 💔. Combos give bonus points!</p>
+      <span class="kicker" data-t="for_my_gamer_girl"></span>
+      <h2 data-t="catch_my_love"></h2>
+      <p class="lead" data-t="move_the_bunny_to"></p>
     </div>
     <div class="game reveal" data-a="zoom" id="game">
       <canvas id="gameCv"></canvas>
@@ -291,9 +291,9 @@
       </div>
       <div class="timebar"><i id="gBar"></i></div>
       <div class="g-overlay" id="gOverlay">
-        <div class="g-title" id="gTitle">CATCH MY LOVE</div>
-        <p class="g-msg" id="gMsg">drag the bunny (or use ← →)</p>
-        <button class="btn" id="gStart" type="button">▶ START</button>
+        <div class="g-title" id="gTitle" data-t="catch_my_love2"></div>
+        <p class="g-msg" id="gMsg" data-t="drag_the_bunny__or"></p>
+        <button class="btn" id="gStart" type="button" data-t="start"></button>
         <p class="g-best" id="gBest"></p>
       </div>
     </div>
@@ -302,15 +302,15 @@
   <!-- code editor -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">python · javascript · c++ · rust · sql</span>
-      <h2>I love you, in code</h2>
-      <p class="lead">Cooper wrote it in 5 programming languages. Pick one and press run.</p>
+      <span class="kicker" data-t="python___javascript"></span>
+      <h2 data-t="i_love_you__in2"></h2>
+      <p class="lead" data-t="wrote_it_in_5"></p>
     </div>
     <div class="editor reveal" data-a="zoom" id="editor">
       <div class="ed-top"><span class="ed-dot"></span><span class="ed-dot"></span><span class="ed-dot"></span><span class="ed-file" id="edFile"></span></div>
       <div class="ed-tabs" id="edTabs"></div>
       <div class="ed-body"><pre class="ed-lines" id="edLines"></pre><pre class="ed-code" id="edCode"></pre></div>
-      <div class="ed-run-row"><span>terminal</span><button class="ed-run" id="edRun" type="button">▶ run</button></div>
+      <div class="ed-run-row"><span data-t="terminal"></span><button class="ed-run" id="edRun" type="button" data-t="run"></button></div>
       <div class="ed-console" id="edConsole"></div>
     </div>
   </section>
@@ -318,23 +318,23 @@
   <!-- love meter -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">very scientific</span>
-      <h2>How much do I love you?</h2>
+      <span class="kicker" data-t="very_scientific"></span>
+      <h2 data-t="how_much_do_i"></h2>
     </div>
     <div class="meter-box reveal" data-a="pop" id="meterBox">
       <div class="meter-num" id="meterNum" data-text="0%">0%</div>
       <div class="meter"><i id="meterFill"></i></div>
-      <p class="meter-cap" id="meterCap">let's measure it…</p>
-      <button class="btn" id="meterBtn" type="button">measure it 📏</button>
+      <p class="meter-cap" id="meterCap" data-t="let_s_measure_it"></p>
+      <button class="btn" id="meterBtn" type="button" data-t="measure_it"></button>
     </div>
   </section>
 
   <!-- say it out loud (microphone) -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">use your voice</span>
-      <h2>Say it out loud</h2>
-      <p class="lead">Tap the mic and say "I love you". The heart fills up with your voice. Nothing is recorded.</p>
+      <span class="kicker" data-t="use_your_voice"></span>
+      <h2 data-t="say_it_out_loud"></h2>
+      <p class="lead" data-t="tap_the_mic_and"></p>
     </div>
     <div class="voice reveal" data-a="pop" id="voice">
       <div class="v-heart">
@@ -342,30 +342,30 @@
         <span class="v-emo" id="vEmo">💗</span>
       </div>
       <div class="v-bars" id="vBars" aria-hidden="true"></div>
-      <p class="v-msg" id="vMsg">tap the mic to start</p>
-      <button class="btn" id="micBtn" type="button">🎤 start listening</button>
+      <p class="v-msg" id="vMsg" data-t="tap_the_mic_to"></p>
+      <button class="btn" id="micBtn" type="button" data-t="start_listening"></button>
     </div>
   </section>
 
   <!-- photo booth (camera) -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">smile!</span>
-      <h2>Photo booth</h2>
-      <p class="lead">Pick a frame and take a cute picture. It never leaves your device — no uploads, ever.</p>
+      <span class="kicker" data-t="smile"></span>
+      <h2 data-t="photo_booth"></h2>
+      <p class="lead" data-t="pick_a_frame_and"></p>
     </div>
     <div class="booth reveal" data-a="zoom" id="booth">
       <div class="booth-screen" id="boothScreen">
         <video id="boothVideo" playsinline muted></video>
         <canvas id="boothFx"></canvas>
-        <div class="booth-off" id="boothOff"><span>📷</span><button class="btn" id="camBtn" type="button">turn on camera</button><p id="camMsg"></p></div>
+        <div class="booth-off" id="boothOff"><span>📷</span><button class="btn" id="camBtn" type="button" data-t="turn_on_camera"></button><p id="camMsg"></p></div>
         <div class="booth-count" id="boothCount"></div>
       </div>
       <div class="booth-frames" id="boothFrames"></div>
-      <button class="btn" id="snapBtn" type="button" disabled>📸 take photo</button>
+      <button class="btn" id="snapBtn" type="button" disabled data-t="take_photo"></button>
       <div class="booth-result" id="boothResult">
-        <img id="boothImg" alt="Your photo booth picture">
-        <div class="br-btns"><a class="btn" id="saveBtn" href="#" download="photo.png">💾 save it</a><button class="btn soft" id="againBtn" type="button">take another</button></div>
+        <img id="boothImg" alt="Your photo booth picture" data-t-alt="your_photo_booth_picture">
+        <div class="br-btns"><a class="btn" id="saveBtn" href="#" download="photo.png" data-t="save_it"></a><button class="btn soft" id="againBtn" type="button" data-t="take_another"></button></div>
       </div>
     </div>
   </section>
@@ -373,8 +373,8 @@
   <!-- photos (only shows if Cooper adds some in config.js) -->
   <section class="section" id="photoSec" hidden>
     <div class="head reveal">
-      <span class="kicker">drag them around</span>
-      <h2>Little moments</h2>
+      <span class="kicker" data-t="drag_them_around"></span>
+      <h2 data-t="little_moments"></h2>
     </div>
     <div class="polaroids" id="polaroids"></div>
   </section>
@@ -382,18 +382,18 @@
   <!-- letter -->
   <section class="section">
     <div class="head reveal">
-      <span class="kicker">one more thing</span>
-      <h2>A letter, just for you</h2>
+      <span class="kicker" data-t="one_more_thing"></span>
+      <h2 data-t="a_letter__just_for"></h2>
     </div>
     <div class="env-wrap reveal" data-a="zoom">
-      <button class="envelope" id="envelope" type="button" aria-label="Open the letter">
+      <button class="envelope" id="envelope" type="button" aria-label="Open the letter" data-t-aria-label="open_the_letter">
         <span class="body"></span>
         <span class="paper" id="envPaper"></span>
         <span class="pocket"></span>
         <span class="flap"></span>
         <span class="seal">♥</span>
       </button>
-      <p class="env-cap" id="envCap">tap to open 💌</p>
+      <p class="env-cap" id="envCap" data-t="tap_to_open"></p>
     </div>
   </section>
 
@@ -402,11 +402,11 @@
     <div class="q-box reveal" data-a="pop" id="qBox">
       <h3 id="qText"></h3>
       <div class="q-btns">
-        <button class="btn" id="yesBtn" type="button">Yes 💗</button>
-        <button class="btn soft" id="noBtn" type="button">No</button>
+        <button class="btn" id="yesBtn" type="button" data-t="yes"></button>
+        <button class="btn soft" id="noBtn" type="button" data-t="no"></button>
       </div>
       <p class="yay" id="yay"></p>
-      <button class="btn credits-btn" id="creditsBtn" type="button">🎬 roll the credits</button>
+      <button class="btn credits-btn" id="creditsBtn" type="button" data-t="roll_the_credits"></button>
     </div>
   </section>
 
@@ -417,18 +417,18 @@
 </main>
 
 <!-- music button -->
-<button id="musicBtn" type="button" aria-label="Music on/off">
+<button id="musicBtn" type="button" aria-label="Music on/off" data-t-aria-label="music_on_off">
   <span class="disc">♪</span>
   <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
 </button>
 
 <!-- night mode button -->
-<button id="nightBtn" type="button" aria-label="Night mode on/off"><span class="moon">🌙</span><span class="sun">☀️</span></button>
+<button id="nightBtn" type="button" aria-label="Night mode on/off" data-t-aria-label="night_mode_on_off"><span class="moon">🌙</span><span class="sun">☀️</span></button>
 
 <!-- letter popup -->
 <div class="modal" id="modal" aria-hidden="true">
-  <div class="letter" role="dialog" aria-label="Letter">
-    <button class="x" id="closeLetter" type="button" aria-label="Close">✕</button>
+  <div class="letter" role="dialog" aria-label="Letter" data-t-aria-label="letter">
+    <button class="x" id="closeLetter" type="button" aria-label="Close" data-t-aria-label="close">✕</button>
     <div id="letterBody"></div>
   </div>
 </div>
@@ -437,16 +437,17 @@
 <div id="credits" aria-hidden="true">
   <div class="stars" id="creditStars"></div>
   <div class="credits-roll" id="creditsRoll"></div>
-  <button class="x" id="closeCredits" type="button" aria-label="Close">✕</button>
+  <button class="x" id="closeCredits" type="button" aria-label="Close" data-t-aria-label="close">✕</button>
 </div>
 
 <!-- achievement toast -->
 <div class="toast" id="toast" role="status">
   <div class="trophy">🏆</div>
-  <div><small>ACHIEVEMENT UNLOCKED</small><b id="toastTitle"></b></div>
+  <div><small data-t="achievement_unlocked"></small><b id="toastTitle"></b></div>
 </div>
 
 <script src="config.js"></script>
+<script src="js/texts.js"></script>
 <script src="js/app.js"></script>
 <script src="js/shader.js"></script>
 <script src="js/heart3d.js"></script>

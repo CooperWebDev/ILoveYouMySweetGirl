@@ -19,7 +19,7 @@
   let px = 0, ptx = 0, tilt = 0, score = 0, combo = 0, best = 0, tEnd = 0, lastSpawn = 0, shake = 0, last = 0;
   const keys = { left: false, right: false };
   try { best = +localStorage.getItem("ella-best") || 0; } catch (e) {}
-  bestEl.textContent = best ? `best: ${best}` : "";
+  bestEl.textContent = best ? T("best",[best]) : "";
 
   function resize() {
     const dpr = Math.min(devicePixelRatio || 1, 2);
@@ -138,7 +138,7 @@
           score += it.pts + bonus;
           pop(it.x, it.y, ["#ff4f93", "#ff9cc2", "#d77ae6", "#fff"][i % 4]);
           float(`+${it.pts}`, it.x, it.y - 20, "#d63a78");
-          if (bonus) { float(`COMBO x${combo}! +${bonus}`, W / 2, H * 0.4, "#c56bd6", true); pop(px, H - 60, "#d77ae6", 24); }
+          if (bonus) { float(T("combo_x",[combo,bonus]), W / 2, H * 0.4, "#c56bd6", true); pop(px, H - 60, "#d77ae6", 24); }
           if (typeof buzz === "function") buzz(8);
         } else {
           score = Math.max(0, score + it.pts);
@@ -168,16 +168,16 @@
     scoreEl.textContent = score;
     timeEl.textContent = Math.ceil(remain);
     bar.style.width = (remain / SECONDS) * 100 + "%";
-    comboEl.textContent = combo >= 3 ? `🔥 x${combo}` : "";
+    comboEl.textContent = combo >= 3 ? T("x",[combo]) : "";
     if (remain <= 0) end(); else requestAnimationFrame(loop);
   }
 
   async function countdown() {
     overlay.classList.add("count");
-    for (const n of ["3", "2", "1", "GO!"]) {
+    for (const n of ["3", "2", "1", T("go")]) {
       titleEl.textContent = n;
       titleEl.classList.remove("pop"); void titleEl.offsetWidth; titleEl.classList.add("pop");
-      if (typeof sound === "function") sound(n === "GO!" ? 784 : 523);
+      if (typeof sound === "function") sound(n === T("go") ? 784 : 523);
       await sleep(650);
     }
     overlay.classList.remove("count");
@@ -203,21 +203,21 @@
     items = [];
     const isBest = score > best;
     if (isBest) { best = score; try { localStorage.setItem("ella-best", best); } catch (e) {} }
-    titleEl.textContent = "GAME OVER";
+    titleEl.textContent = T("game_over");
     msgEl.innerHTML = "";
     const line = document.createElement("span");
-    line.textContent = score >= 35 ? `${score} points — you caught ALL my love 💗` :
-                       score >= 20 ? `${score} points — that's a lot of love!` :
-                       score >= 10 ? `${score} points — cute! try again?` : `${score} points — warm-up round 😚`;
+    line.textContent = score >= 35 ? T("points___you_caught",[score]) :
+                       score >= 20 ? T("points___that_s_a",[score]) :
+                       score >= 10 ? T("points___cute__try",[score]) : T("points___warm_up_round",[score]);
     msgEl.appendChild(line);
-    bestEl.textContent = isBest && score > 0 ? "✨ new best score! ✨" : `best: ${best}`;
-    startBtn.textContent = "▶ PLAY AGAIN";
+    bestEl.textContent = isBest && score > 0 ? T("new_best_score") : T("best",[best]);
+    startBtn.textContent = T("play_again");
     startBtn.style.display = "";
     overlay.classList.remove("hide");
     const [x, y] = center(box);
     burst(x, y, 16);
-    if (score >= 15) achieve("game15", "Love collector 💗");
-    if (score >= 30) { achieve("game30", "Legendary Player 2 🏆"); Fireworks.show(6); }
+    if (score >= 15) achieve("game15", T("love_collector"));
+    if (score >= 30) { achieve("game30", T("legendary_player_2")); Fireworks.show(6); }
     drawScene(performance.now(), 0);
   }
 

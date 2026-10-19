@@ -86,9 +86,9 @@ document.addEventListener("ella:yes", () => buzz([30, 50, 30, 50, 160]));
       }
       c.fillStyle = "rgba(255,255,255,.95)";
       c.font = "700 20px Quicksand, sans-serif"; c.textAlign = "center"; c.textBaseline = "middle";
-      c.fillText("scratch me ✨", w / 2, h / 2 - 6);
+      c.fillText(T("scratch_me"), w / 2, h / 2 - 6);
       c.font = "600 13px Quicksand, sans-serif";
-      c.fillText("💗 💗 💗", w / 2, h / 2 + 20);
+      c.fillText(T("text"), w / 2, h / 2 + 20);
       drawn = true;
     }
     new IntersectionObserver((en, o) => { if (en[0].isIntersecting && !drawn) { paint(); o.disconnect(); } }).observe(el);
@@ -123,8 +123,8 @@ document.addEventListener("ella:yes", () => buzz([30, 50, 30, 50, 160]));
       ring(x, y, { size: 320, width: 3 });
       buzz(30);
       redeemed++;
-      achieve("coupon", "Love coupon redeemed 🎟️");
-      if (redeemed === CONFIG.coupons.length) achieve("coupons", "Collected every coupon 💝");
+      achieve("coupon", T("love_coupon_redeemed"));
+      if (redeemed === CONFIG.coupons.length) achieve("coupons", T("collected_every_coupon"));
     }
     cv.addEventListener("pointerdown", (e) => { if (done) return; down = true; lastP = null; cv.setPointerCapture(e.pointerId); scratchAt(e); });
     cv.addEventListener("pointermove", (e) => { if (down && !done) scratchAt(e); });
@@ -143,7 +143,7 @@ document.addEventListener("ella:yes", () => buzz([30, 50, 30, 50, 160]));
     btn.disabled = true;
     box.classList.remove("broken", "glitch");
     num.classList.remove("glitch", "inf");
-    cap.textContent = "measuring…";
+    cap.textContent = T("measuring");
     const t0 = performance.now();
     await new Promise((done) => {
       (function step(now) {
@@ -155,12 +155,12 @@ document.addEventListener("ella:yes", () => buzz([30, 50, 30, 50, 160]));
         fill.style.width = Math.min(100, v) + "%";
         fill.style.filter = `hue-rotate(${Math.min(v, 2000) / 6}deg)`;
         box.style.transform = k > 0.45 ? `translate(${rand(-1, 1) * k * 7}px, ${rand(-1, 1) * k * 7}px) rotate(${rand(-1, 1) * k}deg)` : "";
-        if (k > 0.5) cap.textContent = k > 0.8 ? "IT'S NOT STOPPING 😳" : "wait… that's not right…";
+        if (k > 0.5) cap.textContent = k > 0.8 ? T("it_s_not_stopping") : T("wait__that_s_not_right");
         if (k < 1) requestAnimationFrame(step); else done();
       })(t0);
     });
     box.style.transform = "";
-    setNum("ERROR: TOO MUCH LOVE");
+    setNum(T("error__too_much_love"));
     num.classList.add("glitch");
     box.classList.add("glitch");
     flash(0.5, 500);
@@ -174,9 +174,9 @@ document.addEventListener("ella:yes", () => buzz([30, 50, 30, 50, 160]));
     box.classList.add("broken");
     setNum("∞");
     num.classList.add("inf");
-    cap.textContent = "the meter broke. that's the answer: infinity 💗";
-    achieve("meter", "Broke the love meter 💥");
-    btn.textContent = "measure again 📏";
+    cap.textContent = T("the_meter_broke__that_s");
+    achieve("meter", T("broke_the_love_meter"));
+    btn.textContent = T("measure_again");
     btn.disabled = false;
     busy = false;
   });
@@ -188,7 +188,7 @@ document.querySelectorAll(".bloom").forEach((b) => {
     b.classList.remove("twirl"); void b.getBoundingClientRect(); b.classList.add("twirl");
     burst(e.clientX, e.clientY, 12, ["🌸", "💮", "✿", "💗"]);
     buzz(15);
-    achieve("flower", "Picked a forever orchid 🌸");
+    achieve("flower", T("picked_a_forever_orchid"));
   });
 });
 
@@ -239,13 +239,13 @@ document.querySelectorAll(".bloom").forEach((b) => {
   function build() {
     roll.innerHTML = "";
     const add = (cls, text) => { const d = document.createElement("div"); d.className = cls; d.textContent = text; roll.appendChild(d); };
-    add("cr-big", "💗 GAME COMPLETE 💗");
-    add("cr-sub", `${CONFIG.herName} & ${CONFIG.fromName}`);
+    add("cr-big", T("game_complete"));
+    add("cr-sub", T("text2"));
     for (const [role, name] of CONFIG.credits) { add("cr-role", role); add("cr-name", name); }
-    add("cr-role", "Achievements unlocked");
-    add("cr-name", `${unlocked.size} 🏆`);
-    add("cr-end", "THE END");
-    add("cr-sub", "…or just the beginning 💗");
+    add("cr-role", T("achievements_unlocked"));
+    add("cr-name", T("text3",[unlocked.size]));
+    add("cr-end", T("the_end"));
+    add("cr-sub", T("or_just_the_beginning"));
   }
   let timer;
   function open() {
@@ -254,7 +254,7 @@ document.querySelectorAll(".bloom").forEach((b) => {
     box.setAttribute("aria-hidden", "false");
     roll.style.animation = "none"; void roll.offsetWidth; roll.style.animation = "";
     clearTimeout(timer);
-    timer = setTimeout(() => { Fireworks.show(10); achieve("credits", "Watched the credits 🎬"); }, 17000);
+    timer = setTimeout(() => { Fireworks.show(10); achieve("credits", T("watched_the_credits")); }, 17000);
   }
   function close() { box.classList.remove("show"); box.setAttribute("aria-hidden", "true"); clearTimeout(timer); }
   btn.addEventListener("click", open);

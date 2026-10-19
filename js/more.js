@@ -71,14 +71,14 @@ if (finePointer && !reduceMotion) {
       burst(x, y, 14, on ? ["⭐", "🌙", "✨"] : ["☀️", "🌸", "✨"]);
       SFX.twinkle();
     }
-    if (on) { achieve("night", "Turned on the stars 🌙"); scheduleStar(1500); }
+    if (on) { achieve("night", T("turned_on_the_stars")); scheduleStar(1500); }
     else clearTimeout(starTimer);
   }
   function scheduleStar(ms) { clearTimeout(starTimer); starTimer = setTimeout(shootingStar, ms ?? rand(3500, 8000)); }
   function shootingStar() {
     if (!document.body.classList.contains("night") || document.hidden) return scheduleStar();
     const s = document.createElement("button");
-    s.className = "shoot"; s.type = "button"; s.setAttribute("aria-label", "Shooting star — make a wish");
+    s.className = "shoot"; s.type = "button"; s.setAttribute("aria-label", T("shooting_star___make"));
     document.body.appendChild(s);
     const x0 = rand(innerWidth * 0.35, innerWidth * 1.05), y0 = rand(-20, innerHeight * 0.3);
     const dist = rand(400, 700), ang = rand(140, 160) * Math.PI / 180;
@@ -92,7 +92,7 @@ if (finePointer && !reduceMotion) {
       burst(e.clientX, e.clientY, 18, ["⭐", "✨", "💫", "💗"]);
       ring(e.clientX, e.clientY, { size: 240, color: "#fff4b8" });
       SFX.twinkle();
-      achieve("wish", "Caught a shooting star — make a wish ⭐");
+      achieve("wish", T("caught_a_shooting_star"));
       s.remove();
     });
     scheduleStar();
@@ -115,15 +115,15 @@ if (finePointer && !reduceMotion) {
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const dayNum = Math.floor((today - START) / DAY) + 1;
   const items = [
-    { date: START, icon: "💗", title: "Day one", text: `The day it all started. Best day ever.` },
-    { date: addMonths(1), icon: "🌸", title: "One month", text: "Officially not a phase." },
-    { date: addDays(99), icon: "💯", title: "100 days", text: "A big deal in Korea 🇰🇷 — and to me." },
-    { date: addMonths(6), icon: "🎀", title: "Half a year", text: "Six months with my favorite person." },
-    { date: addDays(199), icon: "✨", title: "200 days", text: "Still the cutest. Still counting." },
-    { date: addDays(299), icon: "🐰", title: "300 days", text: "300 days of you being amazing." },
-    { date: new Date(START.getFullYear() + 1, START.getMonth(), START.getDate()), icon: "🎂", title: "Our first anniversary", text: "One whole year of us. Cake is mandatory." },
+    { date: START, icon: "💗", title: T("day_one"), text: T("the_day_it_all") },
+    { date: addMonths(1), icon: "🌸", title: T("one_month"), text: T("officially_not_a_phase") },
+    { date: addDays(99), icon: "💯", title: T("100_days"), text: T("a_big_deal_in") },
+    { date: addMonths(6), icon: "🎀", title: T("half_a_year"), text: T("six_months_with_my") },
+    { date: addDays(199), icon: "✨", title: T("200_days"), text: T("still_the_cutest__still") },
+    { date: addDays(299), icon: "🐰", title: T("300_days"), text: T("300_days_of_you") },
+    { date: new Date(START.getFullYear() + 1, START.getMonth(), START.getDate()), icon: "🎂", title: T("our_first_anniversary"), text: T("one_whole_year_of") },
   ];
-  items.push({ date: today, icon: "📍", title: "Today", text: `Day ${dayNum.toLocaleString("en-US")} — you are here 💗`, today: true });
+  items.push({ date: today, icon: "📍", title: T("today"), text: T("day___you_are",[dayNum.toLocaleString("en-US")]), today: true });
   items.sort((a, b) => a.date - b.date || (a.today ? 1 : -1));
   const nextUp = items.find((it) => !it.today && it.date > today);
 
@@ -163,7 +163,7 @@ if (finePointer && !reduceMotion) {
       const d = Math.floor(ms / DAY); ms -= d * DAY;
       const h = Math.floor(ms / 36e5); ms -= h * 36e5;
       const m = Math.floor(ms / 6e4); const s = Math.floor((ms - m * 6e4) / 1000);
-      c.textContent = it === nextUp ? `next up · in ${d}d ${pad(h)}h ${pad(m)}m ${pad(s)}s` : `in ${d + 1} days`;
+      c.textContent = it === nextUp ? T("next_up___in",[d,pad(h),pad(m),pad(s)]) : T("in_days",[d + 1]);
     }
   }
   countdowns(); setInterval(countdowns, 1000);
@@ -206,28 +206,7 @@ if (finePointer && !reduceMotion) {
 (function languages() {
   const sphere = $("#sphere");
   if (!sphere) return;
-  const LANGS = [
-    ["I love you", "English", "en-US", "the classic"],
-    ["사랑해", "Korean", "ko-KR", "sa-rang-hae · Stray Kids approved 🎤"],
-    ["愛してる", "Japanese", "ja-JP", "ai-shi-te-ru"],
-    ["Je t'aime", "French", "fr-FR", "zhuh tem"],
-    ["Te amo", "Spanish", "es-ES", "teh AH-mo"],
-    ["Ti amo", "Italian", "it-IT", "tee AH-mo"],
-    ["Ich liebe dich", "German", "de-DE", "ish LEE-buh dish"],
-    ["Eu te amo", "Portuguese", "pt-BR", "eh-oo chee AH-mo"],
-    ["我爱你", "Chinese", "zh-CN", "wǒ ài nǐ"],
-    ["Я тебя люблю", "Russian", "ru-RU", "ya tee-BYA lyu-BLYU"],
-    ["Seni seviyorum", "Turkish", "tr-TR", "seh-NEE seh-vee-YO-room"],
-    ["Kocham cię", "Polish", "pl-PL", "KO-ham chyeh"],
-    ["Ik hou van je", "Dutch", "nl-NL", "ik how fan yuh"],
-    ["Σ'αγαπώ", "Greek", "el-GR", "sa-ga-PO"],
-    ["Mahal kita", "Filipino", "fil-PH", "ma-HAL kee-TA"],
-    ["Aloha au iā ʻoe", "Hawaiian", "haw-US", "ah-LO-ha ow EE-ah OH-eh"],
-    ["Jeg elsker deg", "Norwegian", "nb-NO", "yai EL-sker dai"],
-    ["Te iubesc", "Romanian", "ro-RO", "teh yoo-BESK"],
-    ["Rakastan sinua", "Finnish", "fi-FI", "RA-kas-tan SI-nu-a"],
-    ["Volim te", "Croatian", "hr-HR", "VO-lim teh"],
-  ];
+  const LANGS = CONFIG.languages;
   const N = LANGS.length;
   const pts = LANGS.map((_, i) => {           // spread evenly on a sphere (Fibonacci sphere)
     const y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * Math.PI * (3 - Math.sqrt(5));
@@ -265,7 +244,7 @@ if (finePointer && !reduceMotion) {
       const [x, y] = center(spans[i]);
       burst(x, y, 8, ["💗", "✨"]);
       heard.add(i);
-      if (heard.size >= 5) achieve("polyglot", "Polyglot of love 🌍");
+      if (heard.size >= 5) achieve("polyglot", T("polyglot_of_love"));
     }
   }
   $("#lpSpeak").addEventListener("click", () => { if (current >= 0) speak(current); });
@@ -331,7 +310,7 @@ if (finePointer && !reduceMotion) {
         "    print(\"error:\", e)",
         `    print(f"conclusion: I love you, {${her.toLowerCase()}['name']} 💗")`,
       ],
-      out: () => ["error: too much love 💥", `conclusion: I love you, ${her} 💗`],
+      out: () => [T("error__too_much_love2"), T("conclusion__i_love_you")],
     },
     {
       name: "JavaScript", file: "days.js", cmd: "node days.js", comment: "//",
@@ -347,7 +326,7 @@ if (finePointer && !reduceMotion) {
         "  console.log(`I love you because you're ${reason}`);",
         "}",
       ],
-      out: () => [`${days()} days with ${her}`, "I love you because you're sweet", "I love you because you're creative", "I love you because you're helpful"],
+      out: () => [T("days_with",[days()]), T("i_love_you_because"), T("i_love_you_because2"), T("i_love_you_because3")],
     },
     {
       name: "C++", file: "heart.cpp", cmd: "g++ heart.cpp -o heart && ./heart", comment: "//",
@@ -366,7 +345,7 @@ if (finePointer && !reduceMotion) {
         "    return 0; // not returning it though",
         "}",
       ],
-      out: () => ["ba-dum 💓", "ba-dum 💓", "ba-dum 💓", `my heart belongs to ${her}`],
+      out: () => [T("ba_dum"), T("ba_dum"), T("ba_dum"), T("my_heart_belongs_to")],
     },
     {
       name: "Rust", file: "main.rs", cmd: "cargo run", comment: "//",
@@ -380,7 +359,7 @@ if (finePointer && !reduceMotion) {
         "    // even the borrow checker approves of us",
         "}",
       ],
-      out: () => ["   Compiling love v1.0.0", "    Finished release [optimized] target(s)", `${her} has my heart 🦀💗`],
+      out: () => [T("compiling_love_v1_0_0"), T("finished_release__optimized__target_s"), T("has_my_heart")],
     },
     {
       name: "SQL", file: "who.sql", cmd: "sqlite3 love.db < who.sql", comment: "--",
@@ -394,10 +373,10 @@ if (finePointer && !reduceMotion) {
         "LIMIT  1;",
       ],
       out: () => {
-        const r = "literally everything";
+        const r = T("literally_everything");
         const w1 = Math.max(4, her.length), w2 = r.length;
         const line = `+${"-".repeat(w1 + 2)}+${"-".repeat(w2 + 2)}+`;
-        return [line, `| ${"name".padEnd(w1)} | ${"reason".padEnd(w2)} |`, line, `| ${her.padEnd(w1)} | ${r} |`, line, "(1 row) — it's always her 💗"];
+        return [line, `| ${"name".padEnd(w1)} | ${"reason".padEnd(w2)} |`, line, `| ${her.padEnd(w1)} | ${r} |`, line, T("1_row____it_s")];
       },
     },
   ];
@@ -437,7 +416,7 @@ if (finePointer && !reduceMotion) {
     data = tokenize(SNIPS[i]);
     fileEl.textContent = SNIPS[i].file;
     linesEl.textContent = Array.from({ length: data.lines }, (_, k) => k + 1).join("\n");
-    cons.innerHTML = '<span class="p">ready.</span> press ▶ run';
+    cons.innerHTML = T("span_class_p_ready_span__press");
     typed = 0;
     if (!typing) { typing = true; requestAnimationFrame(step); }
   }
@@ -467,7 +446,7 @@ if (finePointer && !reduceMotion) {
     burst(x, y, 14, ["💗", "💻", "✨"]);
     ran.add(cur);
     achieve("code", "Ran Cooper's code 💻");
-    if (ran.size === SNIPS.length) achieve("allcode", "Full-stack girlfriend 👩‍💻");
+    if (ran.size === SNIPS.length) achieve("allcode", T("full_stack_girlfriend"));
     running = false;
   });
   let started = false;
@@ -479,7 +458,7 @@ if (finePointer && !reduceMotion) {
   let buf = "";
   function bigLove() {
     Fireworks.show(8); heartRain(90); flash(0.4, 600);
-    achieve("secret", "Found a secret code 🔍");
+    achieve("secret", T("found_a_secret_code"));
   }
   function stayMode() {
     let st = $(".stage-lights");
@@ -491,7 +470,7 @@ if (finePointer && !reduceMotion) {
     }
     st.classList.add("on");
     heartRain(40);
-    achieve("stay", "STAY mode activated 🎤");
+    achieve("stay", T("stay_mode_activated"));
     setTimeout(() => st.classList.remove("on"), 8000);
   }
   addEventListener("keydown", (e) => {
