@@ -77,16 +77,16 @@ const CONFIG = {
 
   // The secret letter (each line = one paragraph)
   letter: [
-    `Dear ${pickNick()},`,
-    "I'm not always the best at saying how I feel out loud, so I made you this instead.",
-    "Ever since April 4th, everything has felt brighter. You make the boring days fun and the good days even better. You're sweet, creative, caring, and honestly the cutest person ever.",
-    "Thank you for the laughs, the games, the long talks, and for letting me be the one who gets to love you.",
-    "I can't wait for all the days we haven't had yet.",
+    `Hey sexy :>,`,
+    "Your so special to me, when i met you and saw your first couple messages i already knew you where special.",
+    "The way you cared, the way you showed your interest was so special.. i love you from the bottom of my heart baby. The way you make my day each day, im the happiest and luckiest guy alive i swear, your so unique and so special.",
+    "I was pooping my pants when i showed you my feelings but im so happy it went the right way and that you loved me back, i couldn't wish for more.. i had such a big smile and i still have a big smile because of you every day :)",
+    "I can't wait for all the memories we will make and the future together <3",
   ],
-  signOff: "Forever yours, Cooper 💗",
+  signOff: "Forever yours sexy, MWAH :D",
 
-  question: "So… will you stay my Player 2 forever? 🎮",
-  yesAnswer: "Best answer ever. Player 2 locked in — forever 💗",
+  question: "So… will you stay my beautiful Player 2 forever :D?",
+  yesAnswer: "Amazing answer hehe. WE ARE FOREVER TOGETHER YAYAYAYAY 💗",
 
   // The "game credits" that roll at the very end
   credits: [
