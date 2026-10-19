@@ -1,10 +1,10 @@
 /* Service worker: lets the site be installed like an app and open offline.
    Bump VERSION whenever you change files so phones get the new version. */
-const VERSION = "ella-v4";
+const VERSION = "ella-v5";
 const FILES = [
   "./", "index.html", "config.js", "js/texts.js", "manifest.webmanifest",
   "css/style.css", "css/features.css", "css/more.css",
-  "js/app.js", "js/shader.js", "js/heart3d.js", "js/music.js", "js/game.js", "js/extras.js", "js/more.js", "js/booth.js",
+  "js/app.js", "js/shader.js", "js/heart3d.js", "js/music.js", "js/extras.js", "js/more.js",
   "icons/icon-192.png", "icons/icon-512.png",
 ];
 self.addEventListener("install", (e) => {

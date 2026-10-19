@@ -275,46 +275,6 @@
     <p class="piano-tip reveal" data-t="keyboard__a_s_d"></p>
   </section>
 
-  <!-- mini game -->
-  <section class="section">
-    <div class="head reveal">
-      <span class="kicker" data-t="for_my_gamer_girl"></span>
-      <h2 data-t="catch_my_love"></h2>
-      <p class="lead" data-t="move_the_bunny_to"></p>
-    </div>
-    <div class="game reveal" data-a="zoom" id="game">
-      <canvas id="gameCv"></canvas>
-      <div class="hud">
-        <span>💗 <b id="gScore">0</b></span>
-        <span class="combo" id="gCombo"></span>
-        <span>⏱ <b id="gTime">25</b></span>
-      </div>
-      <div class="timebar"><i id="gBar"></i></div>
-      <div class="g-overlay" id="gOverlay">
-        <div class="g-title" id="gTitle" data-t="catch_my_love2"></div>
-        <p class="g-msg" id="gMsg" data-t="drag_the_bunny__or"></p>
-        <button class="btn" id="gStart" type="button" data-t="start"></button>
-        <p class="g-best" id="gBest"></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- code editor -->
-  <section class="section">
-    <div class="head reveal">
-      <span class="kicker" data-t="python___javascript"></span>
-      <h2 data-t="i_love_you__in2"></h2>
-      <p class="lead" data-t="wrote_it_in_5"></p>
-    </div>
-    <div class="editor reveal" data-a="zoom" id="editor">
-      <div class="ed-top"><span class="ed-dot"></span><span class="ed-dot"></span><span class="ed-dot"></span><span class="ed-file" id="edFile"></span></div>
-      <div class="ed-tabs" id="edTabs"></div>
-      <div class="ed-body"><pre class="ed-lines" id="edLines"></pre><pre class="ed-code" id="edCode"></pre></div>
-      <div class="ed-run-row"><span data-t="terminal"></span><button class="ed-run" id="edRun" type="button" data-t="run"></button></div>
-      <div class="ed-console" id="edConsole"></div>
-    </div>
-  </section>
-
   <!-- love meter -->
   <section class="section">
     <div class="head reveal">
@@ -329,47 +289,6 @@
     </div>
   </section>
 
-  <!-- say it out loud (microphone) -->
-  <section class="section">
-    <div class="head reveal">
-      <span class="kicker" data-t="use_your_voice"></span>
-      <h2 data-t="say_it_out_loud"></h2>
-      <p class="lead" data-t="tap_the_mic_and"></p>
-    </div>
-    <div class="voice reveal" data-a="pop" id="voice">
-      <div class="v-heart">
-        <svg class="v-ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="v-track" cx="60" cy="60" r="54"/><circle class="v-fill" id="vFill" cx="60" cy="60" r="54" pathLength="1"/></svg>
-        <span class="v-emo" id="vEmo">💗</span>
-      </div>
-      <div class="v-bars" id="vBars" aria-hidden="true"></div>
-      <p class="v-msg" id="vMsg" data-t="tap_the_mic_to"></p>
-      <button class="btn" id="micBtn" type="button" data-t="start_listening"></button>
-    </div>
-  </section>
-
-  <!-- photo booth (camera) -->
-  <section class="section">
-    <div class="head reveal">
-      <span class="kicker" data-t="smile"></span>
-      <h2 data-t="photo_booth"></h2>
-      <p class="lead" data-t="pick_a_frame_and"></p>
-    </div>
-    <div class="booth reveal" data-a="zoom" id="booth">
-      <div class="booth-screen" id="boothScreen">
-        <video id="boothVideo" playsinline muted></video>
-        <canvas id="boothFx"></canvas>
-        <div class="booth-off" id="boothOff"><span>📷</span><button class="btn" id="camBtn" type="button" data-t="turn_on_camera"></button><p id="camMsg"></p></div>
-        <div class="booth-count" id="boothCount"></div>
-      </div>
-      <div class="booth-frames" id="boothFrames"></div>
-      <button class="btn" id="snapBtn" type="button" disabled data-t="take_photo"></button>
-      <div class="booth-result" id="boothResult">
-        <img id="boothImg" alt="Your photo booth picture" data-t-alt="your_photo_booth_picture">
-        <div class="br-btns"><a class="btn" id="saveBtn" href="#" download="photo.png" data-t="save_it"></a><button class="btn soft" id="againBtn" type="button" data-t="take_another"></button></div>
-      </div>
-    </div>
-  </section>
-
   <!-- photos (only shows if Cooper adds some in config.js) -->
   <section class="section" id="photoSec" hidden>
     <div class="head reveal">
@@ -377,6 +296,19 @@
       <h2 data-t="little_moments"></h2>
     </div>
     <div class="polaroids" id="polaroids"></div>
+  </section>
+
+  <!-- question -->
+  <section class="section">
+    <div class="q-box reveal" data-a="pop" id="qBox">
+      <h3 id="qText"></h3>
+      <div class="q-btns">
+        <button class="btn" id="yesBtn" type="button" data-t="yes"></button>
+        <button class="btn soft" id="noBtn" type="button" data-t="no"></button>
+      </div>
+      <p class="yay" id="yay"></p>
+      <button class="btn credits-btn" id="creditsBtn" type="button" data-t="roll_the_credits"></button>
+    </div>
   </section>
 
   <!-- letter -->
@@ -394,19 +326,6 @@
         <span class="seal">♥</span>
       </button>
       <p class="env-cap" id="envCap" data-t="tap_to_open"></p>
-    </div>
-  </section>
-
-  <!-- question -->
-  <section class="section">
-    <div class="q-box reveal" data-a="pop" id="qBox">
-      <h3 id="qText"></h3>
-      <div class="q-btns">
-        <button class="btn" id="yesBtn" type="button" data-t="yes"></button>
-        <button class="btn soft" id="noBtn" type="button" data-t="no"></button>
-      </div>
-      <p class="yay" id="yay"></p>
-      <button class="btn credits-btn" id="creditsBtn" type="button" data-t="roll_the_credits"></button>
     </div>
   </section>
 
@@ -452,9 +371,7 @@
 <script src="js/shader.js"></script>
 <script src="js/heart3d.js"></script>
 <script src="js/music.js"></script>
-<script src="js/game.js"></script>
 <script src="js/extras.js"></script>
 <script src="js/more.js"></script>
-<script src="js/booth.js"></script>
 </body>
 </html>
