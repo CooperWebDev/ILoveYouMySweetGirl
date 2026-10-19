@@ -6,14 +6,14 @@
    ===================================================================== */
 // Nicknames used when the site talks TO her (the name above stays for the title, credits, etc.).
 // Add, remove or change any of them. Each spot on the site picks one at random.
-const NICKNAMES = ["Babe", "Girl", "Beautiful Girl"];
+const NICKNAMES = ["Babe", "Baby", "Hotness", "Cutie", "Beautiful"];
 const pickNick = () => NICKNAMES[Math.floor(Math.random() * NICKNAMES.length)];
 
 const CONFIG = {
-  herName: "Ella",
+  herName: "Elia",
   nicknames: NICKNAMES,
   nick: pickNick,
-  fromName: "Cooper",
+  fromName: "Milan",
 
   // The day you started dating (year-month-day)
   startDate: "2026-04-04",
@@ -22,11 +22,11 @@ const CONFIG = {
   // so "04/04/2026", "4.4.2026" and "04042026" all work).
   // You can also add a word, like "bunny".
   passwords: ["04042026", "442026", "0404", "44"],
-  hint: "Hint: the day our story started 🌸 (DD/MM/YYYY)",
+  hint: "Hint: the day our story started :D",
 
   // The 3 lines written during the intro animation (heart → her name → the date)
-  introLines: [`hi, ${pickNick()}…`, "the cutest girl in the whole world", "do you remember this day?"],
-  sinceText: "the day you became my favorite person 💗",
+  introLines: [`hey, ${pickNick()}…`, "the most beautiful girl in the world..", "do you remember this day?"],
+  sinceText: "the day you became my favorite person :>",
 
   // Background music.
   //   ""  = a soft music-box song made by the code itself
@@ -36,22 +36,22 @@ const CONFIG = {
 
   // The flip cards. icon = any emoji, bg = card color
   cards: [
-    { icon: "🌸", bg: "linear-gradient(150deg,#ffe0ee,#ffc2da)", title: "Open when you need a smile",
-      text: "Hey pretty girl. Just a reminder that you're the cutest, sweetest person I know — and I'm not even exaggerating. Go smile in the mirror, because that's my favorite view in the whole world." },
-    { icon: "🐰", bg: "linear-gradient(150deg,#fff0f6,#ffd3e6)", title: "Open when you're feeling down",
-      text: `I wish I could give you the biggest hug right now. Whatever is going on, it won't last forever — but I will. You're never alone, ${pickNick()}. I've got you, always.` },
-    { icon: "🐴", bg: "linear-gradient(150deg,#f6e6ff,#e6c8ff)", title: "Open when you miss me",
-      text: "I miss you too. Like, a lot. Close your eyes and imagine I'm right next to you holding your hand. Okay, now text me — I'm probably already thinking about you." },
-    { icon: "🎮", bg: "linear-gradient(150deg,#ffe6f0,#ffbcd6)", title: "For my Player 2",
-      text: "Every game is better with you in it — even when you carry me (which is… often). You're my favorite teammate, in games and in life." },
-    { icon: "🎹", bg: "linear-gradient(150deg,#fff2f8,#f9d0ef)", title: "For my favorite pianist",
-      text: "I love watching you play. The way you focus, the way you light up when you get it right… you make everything sound beautiful. Never stop playing." },
-    { icon: "🎤", bg: "linear-gradient(150deg,#ffe3f1,#ffc7e4)", title: "Stray Kids stan certified",
-      text: "I know I've got serious competition with Stray Kids 😅 but I'm fine being second place on your playlist, as long as I'm first in your heart." },
+    { icon: "🌸", bg: "linear-gradient(150deg,#ffe0ee,#ffc2da)", title: "Open when you need a smile :)",
+      text: "Hey sexy, maybe you have a hard time right now but keep in mind that there is always 1 person that is standing by your side.. AND THAT IS ME YAYAYAYAY. Ehem but yes, i love you so so much and your doing so amazing :>." },
+    { icon: "🐰", bg: "linear-gradient(150deg,#fff0f6,#ffd3e6)", title: "Open when you're feeling down..",
+      text: `I luffff you, don't be sad sexy. Wipe those beautiful tears and give me a big kiss :> MWAH. SMILE BABY SMILLLLEEEEE :D.` },
+    { icon: "🐴", bg: "linear-gradient(150deg,#f6e6ff,#e6c8ff)", title: "Open when you miss me :<",
+      text: "I miss you too baby.. how about you imagine me being next to you :D. Close those beautiful eyes of yours and think about me holding your hand.. walking on the beach :). OR WAIT, maybe doing some kiss kiss :>>>." },
+    { icon: "🎮", bg: "linear-gradient(150deg,#ffe6f0,#ffbcd6)", title: "For my teammate, my player 2 for life :D",
+      text: "We are amazing duo right :>.. RIGHT RIGHT, LIKE KAPOW, PEW PEW PEW.. and we beat the ender dragon just like that :>. I always love playing with you sexy.. MWAH <3" },
+    { icon: "🎹", bg: "linear-gradient(150deg,#fff2f8,#f9d0ef)", title: "For my favorite pianist <3",
+      text: "YOU GOT THE SKILL, YOU GOT THE POWER.. and you got that beautiful body mmmm.. ANYWAYS your so talanted hotness, your doing so amazing with those cute little hands :))." },
+    { icon: "🎤", bg: "linear-gradient(150deg,#ffe3f1,#ffc7e4)", title: "Stray Kids..",
+      text: "I know i got competition against that stray kids thingy.. luckily im still first place tho hehe. Im happy you got music to get you through things too my love :D." },
     { icon: "🐶", bg: "linear-gradient(150deg,#fff1e9,#ffd5e2)", title: "My promises to you",
-      text: "I promise to make you laugh, to always listen, to send you way too many cute dog videos, to bring you flowers (orchids, obviously) and to always choose you." },
-    { icon: "💗", bg: "linear-gradient(150deg,#ffd6e7,#ff9fc4)", title: "Just because",
-      text: "No reason. I just love you. That's it, that's the card. 💗" },
+      text: "So my promise right, my promise.. tbh it isn't really a promise its just what is going to happen. I will marry you someday and that day will come, you will look so stunning in that dress.." },
+    { icon: "💗", bg: "linear-gradient(150deg,#ffd6e7,#ff9fc4)", title: "Mmmm..",
+      text: "THAT BODY SO TASTY.. LIKE MMMMM.. DID YOU LOOK IN THE MIRROR BEAUTIFUL, STUNNING AND GORGEOUS GIRL.. your so sexy i swear make me do anything.. MWAH MWAH MWAH" },
   ],
 
   // Scratch-off love coupons
